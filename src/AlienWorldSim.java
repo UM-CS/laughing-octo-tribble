@@ -2,6 +2,14 @@ import javax.swing.*;
 import javax.swing.Timer;
 
 import Creatures.ZogWalker;
+import Creatures.Sauropod;
+import Creatures.Pleeb;
+import Creatures.BlinkBug;
+import Creatures.Landstrider;
+import Creatures.RoboSwimmer;
+import Creatures.ZogFlyers;
+import Creatures.Blobster;
+
 import Definitions.Alien;
 import Definitions.CanFly;
 import Definitions.CanSwim;
@@ -15,8 +23,8 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class AlienWorldSim extends JPanel {
-    private final int GRID_COUNT = 20;
-    private final int CELL_SIZE = 30;
+    private final int GRID_COUNT = 50;
+    private final int CELL_SIZE = 15;
     private Terrain[][] map = new Terrain[GRID_COUNT][GRID_COUNT];
     private List<Alien> aliens;
 
@@ -27,7 +35,14 @@ public class AlienWorldSim extends JPanel {
         // Registry of types
         Random r = new Random();
         List<Supplier<Alien>> types = Arrays.asList(
-            () -> new ZogWalker(r.nextInt(5), r.nextInt(GRID_COUNT), CELL_SIZE)
+            () -> new ZogWalker(r.nextInt(5), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new Sauropod(r.nextInt(1), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new Pleeb(r.nextInt(3), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new BlinkBug(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new Landstrider(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new RoboSwimmer(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new ZogFlyers(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new Blobster(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE)
         );
 
         aliens = new ArrayList<>();
@@ -86,9 +101,9 @@ public class AlienWorldSim extends JPanel {
 
     public static void main(String[] args) {
         JFrame f = new JFrame("The Great Divide");
-        f.add(new AlienWorldSim(15));
+        f.add(new AlienWorldSim(1000));
         f.pack();
-        f.setSize(615, 640);
+        f.setSize(765, 800);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
     }

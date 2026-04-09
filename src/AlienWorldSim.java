@@ -9,6 +9,7 @@ import Creatures.Landstrider;
 import Creatures.RoboSwimmer;
 import Creatures.ZogFlyers;
 import Creatures.Blobster;
+import Creatures.Zappies;
 
 import Definitions.Alien;
 import Definitions.CanFly;
@@ -42,7 +43,8 @@ public class AlienWorldSim extends JPanel {
             () -> new Landstrider(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
             () -> new RoboSwimmer(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
             () -> new ZogFlyers(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
-            () -> new Blobster(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE)
+            () -> new Blobster(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new Zappies(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE)
         );
 
         aliens = new ArrayList<>();

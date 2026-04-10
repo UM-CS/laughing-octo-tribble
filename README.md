@@ -1,18 +1,25 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Once you have joined the project team run the following command with your name inserted into <yourname>:
 
-## Folder Structure
+- git clone https://github.com/UM-CS/laughing-octo-tribble.git Links to an external site.
+- git checkout -b <yourname>
 
-The workspace contains two folders by default, where:
+Once you have made a change you are happy with run these commands:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- git add .
+- git commit -m "Add your own descriptive message here"
+- git push --set-upstream origin <yourname>
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Then go on GitHub and create a pull request.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+https://github.com/UM-CS/laughing-octo-tribble Links to an external site.
 
-## Dependency Management
+There should be a pop up that makes it easy.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+ 
+
+You should try to contribute at least one change, and comment on at least on pull request.
+
+
+Here is the link to our UML Diagram: [lucidchart link](https://lucid.app/lucidchart/bc97e2bb-7c3a-427f-ac85-86f8ae3b0a18/edit?viewport_loc=-810%2C-1190%2C1982%2C1130%2C0_0&invitationId=inv_ec9b1094-9f0b-48f6-a9c2-714f6cfe1cfb)

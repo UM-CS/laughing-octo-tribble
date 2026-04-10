@@ -10,12 +10,11 @@ import Definitions.Terrain;
 
 public class Pleeb extends Alien implements CanWalk, CanSwim{
     int landSpeed = 1;
-    int waterSpeed = 3;
+    int waterSpeed = 2;
 
     public Pleeb(int x, int y, int size){
         super("Plebbles",x, y, size, Color.WHITE);
     }
-
 
     public void walk(Terrain[][] map){
         Random rand = new Random();
@@ -23,9 +22,19 @@ public class Pleeb extends Alien implements CanWalk, CanSwim{
         int nextY = gridY + (rand.nextBoolean() ? 1 : -1) * rand.nextInt(landSpeed);
 
         if(canEnter(nextX,nextY,map)){
-            gridX = nextX;
+
+            for(int i = 0; i <= 4; i++){
+                boolean randY = rand.nextBoolean();
+                gridX += nextX;
+                gridY += (randY ? 1 : -1);;
+                gridX += -nextX;
+                gridY += (!randY ? 1 : -1);;   
+            }
         }
-        
+        else{
+            gridX += (rand.nextBoolean() ? 1 : -1);
+            gridX = Math.max(0, Math.min(map[0].length-1, gridX));
+        }
     }
 
     public void swim(Terrain[][] map){
@@ -35,11 +44,14 @@ public class Pleeb extends Alien implements CanWalk, CanSwim{
 
         if(canEnter(nextX,nextY,map)){
             gridX = nextX;
+            for(int i = 0; i <= 6; i++){
+                gridY = -nextY;
+                gridY = nextY;
+            }
+          
         }
-        else{
-            gridY += (rand.nextBoolean() ? 1 : -1);
-            gridY = Math.max(0, Math.min(map[0].length-1, gridY));
-        }
+        
+        
     }
 }
 

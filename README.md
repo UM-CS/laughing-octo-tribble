@@ -1,15 +1,15 @@
 ## Getting Started
 
-Once you have joined the project team run the following command with your name inserted into <yourname>:
+Once you have joined the project team run the following command with your name inserted into yourname:
 
 - git clone https://github.com/UM-CS/laughing-octo-tribble.git Links to an external site.
-- git checkout -b <yourname>
+- git checkout -b yourname
 
 Once you have made a change you are happy with run these commands:
 
 - git add .
 - git commit -m "Add your own descriptive message here"
-- git push --set-upstream origin <yourname>
+- git push --set-upstream origin yourname
 
 Then go on GitHub and create a pull request.
 

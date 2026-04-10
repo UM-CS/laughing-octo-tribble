@@ -11,7 +11,7 @@ import Definitions.Terrain;
 public class Zappies extends Alien implements CanWalk, CanTeleport{
  
     public Zappies(int x, int y, int size){
-        super("Zappies", x, y, size, Color.yellow);
+        super("Zappies", x, y, size, Color.YELLOW);
     }
  
     public void teleport(Terrain[][] map){

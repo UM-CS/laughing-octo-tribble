@@ -11,7 +11,7 @@ public class RoboSwimmer extends Alien implements CanSwim {
     int swimSpeed = 4;
 
     public RoboSwimmer(int x, int y, int size) {
-        super("Babbie", x, y, size, Color.PINK);
+        super("Babbie", x, y, size, Color.BLUE);
     };
 
     public void swim(Terrain[][] map) {

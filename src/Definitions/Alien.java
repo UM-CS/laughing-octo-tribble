@@ -18,7 +18,13 @@ public class Alien {
 
     public void draw(Graphics g) {
         g.setColor(color);
-        g.fillRoundRect(gridX * 15 + 4, gridY * 15 + 4, size - 8, size - 8, 10, 10);
+        int drawX = gridX * 15 + 4;
+        int drawY = gridY * 15 + 4;
+        int drawSize = size - 8;
+        g.fillRoundRect(drawX, drawY, drawSize, drawSize, 10, 10);
+        g.setFont(new Font("SansSerif", Font.PLAIN, 5));
+        g.setColor(Color.WHITE); 
+        g.drawString(name, drawX + 2, drawY + (drawSize / 2) + 5);
     }
 
     // Helper to validate moves based on Interfaces

@@ -10,6 +10,7 @@ import Creatures.RoboSwimmer;
 import Creatures.ZogFlyers;
 import Creatures.Blobster;
 import Creatures.Zappies;
+import Creatures.ZogSwimmer;
 
 import Definitions.Alien;
 import Definitions.CanFly;
@@ -44,7 +45,8 @@ public class AlienWorldSim extends JPanel {
             () -> new RoboSwimmer(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
             () -> new ZogFlyers(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
             () -> new Blobster(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
-            () -> new Zappies(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE)
+            () -> new Zappies(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE),
+            () -> new ZogSwimmer(r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE)
         );
 
         aliens = new ArrayList<>();
@@ -103,7 +105,7 @@ public class AlienWorldSim extends JPanel {
 
     public static void main(String[] args) {
         JFrame f = new JFrame("The Great Divide");
-        f.add(new AlienWorldSim(1000));
+        f.add(new AlienWorldSim(200));
         f.pack();
         f.setSize(765, 800);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

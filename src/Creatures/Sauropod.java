@@ -27,6 +27,14 @@ public class Sauropod extends Alien implements CanWalk, CanSwim{
         }
     }
 
+    public boolean nearSauropod(Terrain[][] map) {
+        /*
+        This function will check if there is another sauropod around.
+        If there is, it will make another Sauropod. 
+        */
+       return false; // Placeholder
+    }
+
     public void swim(Terrain[][] map) {
         // Sauropods are big and can walk through most bodies of water that aren't ocean
 

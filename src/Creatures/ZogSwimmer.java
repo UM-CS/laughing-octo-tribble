@@ -13,6 +13,7 @@ public class ZogSwimmer extends Alien implements CanSwim {
       super("WaterZog", x, y, size, Color.PINK);
    }
    
+   @Override
    public void swim(Terrain[][] map) {
 
       Random r = new Random();

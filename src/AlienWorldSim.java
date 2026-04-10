@@ -82,6 +82,8 @@ public class AlienWorldSim extends JPanel {
                 if (x == 9 || x == 10) map[x][y] = Terrain.RIVER;
                 // Create a void river (columns 13 and 14)
                 else if (x == 13 || x == 14) map[x][y] = Terrain.VOID;
+                // Create a sand square (columns 30-40, rows 1-10)
+                else if (x >= 30 && x <= 40 && y >= 1 && y <= 10) map[x][y] = Terrain.SAND;
                 else map[x][y] = Terrain.GROUND;
             }
         }
@@ -94,6 +96,7 @@ public class AlienWorldSim extends JPanel {
             for (int y = 0; y < GRID_COUNT; y++) {
                 if (map[x][y] == Terrain.RIVER) g.setColor(new Color(0, 100, 200));
                 else if (map[x][y] == Terrain.VOID) g.setColor(new Color(200, 0, 0));
+                else if (map[x][y] == Terrain.SAND) g.setColor(new Color(194, 178, 128));
                 else g.setColor(new Color(40, 40, 50));
                 g.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
                 g.setColor(new Color(60, 60, 80));

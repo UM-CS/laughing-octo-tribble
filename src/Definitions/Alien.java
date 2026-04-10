@@ -23,7 +23,7 @@ public class Alien {
         int drawY = gridY * 15 + 4;
         int drawSize = size - 8;
         g.fillRoundRect(drawX, drawY, drawSize, drawSize, 10, 10);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 5));
+        g.setFont(new Font("SansSerif", Font.PLAIN, 9));
         g.setColor(Color.WHITE); 
         g.drawString(name, drawX + 2, drawY + (drawSize / 2) + 5);
     }

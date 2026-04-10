@@ -11,7 +11,7 @@ public class ZogWalker extends Alien implements CanWalk {
     int speed = 2;
 
     public ZogWalker(int x, int y, int size) { 
-        super("Zog", x, y, size, Color.GREEN); 
+        super("Walker", x, y, size, Color.GREEN); 
     }
 
 

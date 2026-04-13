@@ -14,7 +14,9 @@ public class Alien {
     Color color;
     String name;
 
-    public String getRandomName() throws IOException{
+    Terrain myFaction = Terrain.VOID;
+
+    public String getRandomName() throws IOException{ //Lets try this again
         ArrayList<String> names = new ArrayList<>();
 
         BufferedReader reader = null;

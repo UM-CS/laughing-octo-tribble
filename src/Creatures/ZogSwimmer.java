@@ -24,6 +24,7 @@ public class ZogSwimmer extends Alien implements CanSwim, CanWalk {
       int nextY = this.gridY + (r.nextBoolean() ? 1 : -1) * r.nextInt(this.WaterSpeed);
       if (this.canEnter(nextX, nextY, map)) {
          this.gridX = nextX;
+         this.gridY = nextY;
       }
 
    }
@@ -35,6 +36,7 @@ public class ZogSwimmer extends Alien implements CanSwim, CanWalk {
       int nextY = this.gridY + (r.nextBoolean() ? 1 : -1) * r.nextInt(this.LandSpeed);
       if(this.canEnter(nextX, nextY, map)){
          this.gridX = nextX;
+         this.gridY = nextY;
       }
    }
 }

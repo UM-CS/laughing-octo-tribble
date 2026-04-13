@@ -76,7 +76,7 @@ public class AlienWorldSim extends JPanel {
                     if((boolean) ((CanReproduce)alien).reproduce())
                     {
                         if(alien instanceof ZogFlyers)
-                            aliens.add(new ZogFlyers (r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE));
+                            aliens.add(new ZogFlyers (r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE,Color.RED));
                     }
                 }
             }

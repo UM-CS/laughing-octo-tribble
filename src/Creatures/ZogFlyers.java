@@ -20,6 +20,9 @@ public class ZogFlyers extends Alien implements CanFly
     public ZogFlyers(int x, int y, int size){
         super("Flyer", x, y, new Random().nextInt(thesize), Color.CYAN); 
     }
+       public ZogFlyers(int x, int y, int size, Color c){
+        super("Flyer", x, y, new Random().nextInt(thesize), c); 
+    }
     
     public void fly(Terrain[][] map)
     {

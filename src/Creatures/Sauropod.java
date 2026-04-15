@@ -1,11 +1,11 @@
 package Creatures;
 
+import Definitions.Alien;
+import Definitions.CanSwim;
+import Definitions.CanWalk;
+import Definitions.Terrain;
 import java.awt.Color;
 import java.util.Random;
-import Definitions.Alien;
-import Definitions.CanWalk;
-import Definitions.CanSwim;
-import Definitions.Terrain;
 
 public class Sauropod extends Alien implements CanWalk, CanSwim{
     int speed = 2;

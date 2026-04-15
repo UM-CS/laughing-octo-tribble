@@ -18,7 +18,7 @@ public class ZogSwimmer extends Alien implements CanSwim, CanWalk {
    
    @Override
    public void swim(Terrain[][] map) {
-
+      if (map[gridX][gridY] != Terrain.RIVER) return; 
       Random r = new Random();
       int nextX = this.gridX + (r.nextBoolean() ? 1 : -1) * r.nextInt(this.WaterSpeed);
       int nextY = this.gridY + (r.nextBoolean() ? 1 : -1) * r.nextInt(this.WaterSpeed);
@@ -26,17 +26,26 @@ public class ZogSwimmer extends Alien implements CanSwim, CanWalk {
          this.gridX = nextX;
          this.gridY = nextY;
       }
+      else {
+         this.gridY += (r.nextBoolean() ? 1 : -1);
+         this.gridY = Math.max(0, Math.min(map[0].length - 1, this.gridY));
+      }
 
    }
 
    @Override
    public void walk(Terrain[][] map){
+      if (map[gridX][gridY] != Terrain.GROUND) return; 
       Random r = new Random();
       int nextX = this.gridX + (r.nextBoolean() ? 1 : -1) * r.nextInt(this.LandSpeed);
       int nextY = this.gridY + (r.nextBoolean() ? 1 : -1) * r.nextInt(this.LandSpeed);
       if(this.canEnter(nextX, nextY, map)){
          this.gridX = nextX;
          this.gridY = nextY;
+      }
+      else {
+         this.gridY += (r.nextBoolean() ? 1 : -1);
+         this.gridY = Math.max(0, Math.min(map[0].length - 1, this.gridY));
       }
    }
 }

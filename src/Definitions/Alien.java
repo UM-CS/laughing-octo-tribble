@@ -1,6 +1,11 @@
 package Definitions;
 
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Alien {
@@ -9,8 +14,38 @@ public class Alien {
     Color color;
     String name;
 
+    Terrain myFaction = Terrain.VOID;
+
+    public String getRandomName() throws IOException{ //Lets try this again
+        ArrayList<String> names = new ArrayList<>();
+
+        BufferedReader reader = null;
+
+        try {
+            reader = new BufferedReader(new FileReader("src/names.txt"));
+
+            String line;
+
+            while((line = reader.readLine()) != null){
+                names.add(line);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if(reader != null) reader.close();
+        }
+
+        Random random = new Random();
+
+        return names.get(random.nextInt(names.size()-1));
+    }
+
     public Alien(String name, int x, int y, int size, Color color) {
-        this.name = name;
+        try {
+            this.name = getRandomName();
+        } catch (Exception e) {
+            this.name = name;
+        }
         this.gridX = x; 
         this.gridY = y;
         this.size = size; 
@@ -23,7 +58,7 @@ public class Alien {
         int drawY = gridY * 15 + 4;
         int drawSize = size - 8;
         g.fillRoundRect(drawX, drawY, drawSize, drawSize, 10, 10);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 9));
+        g.setFont(new Font("SansSerif", Font.PLAIN, 12));
         g.setColor(Color.WHITE); 
         g.drawString(name, drawX + 2, drawY + (drawSize / 2) + 5);
     }

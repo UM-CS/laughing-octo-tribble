@@ -79,7 +79,7 @@ public class AlienWorldSim extends JPanel {
         for (int x = 0; x < GRID_COUNT; x++) {
             for (int y = 0; y < GRID_COUNT; y++) {
                 // Create a normal river (columns 9 and 10)
-                if (x == 9 || x == 10z) map[x][y] = Terrain.RIVER;
+                if (x == 9 || x == 10) map[x][y] = Terrain.RIVER;
                 // Create a void river (columns 13 and 14)
                 else if (x == 13 || x == 14) map[x][y] = Terrain.VOID;
                 else map[x][y] = Terrain.GROUND;

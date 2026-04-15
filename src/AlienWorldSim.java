@@ -103,6 +103,7 @@ public class AlienWorldSim extends JPanel {
                 g.drawRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
             }
         }
+        
         for (Alien a : aliens) a.draw(g);
     }
 

@@ -12,7 +12,7 @@ public class Landstrider extends Alien implements CanWalk {
     int size = 7;
 
     public Landstrider(int x, int y, int size) {
-        super("Peregrine", x, y, size, Color.ORANGE);
+        super("Strider", x, y, size, Color.ORANGE);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Landstrider extends Alien implements CanWalk {
             gridY += (r.nextBoolean() ? 1 : -1);
             gridY = Math.max(0, Math.min(map[0].length-1, gridY));
         }
-
     }
 
+    
 }

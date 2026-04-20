@@ -74,4 +74,17 @@ public class Alien {
         
         return false; // Cannot enter!
     }
+
+    public int getX()
+    {
+        return gridX;
+    }
+
+      public int getY()
+    {
+        return gridY;
+    }
+
+    
+
 }

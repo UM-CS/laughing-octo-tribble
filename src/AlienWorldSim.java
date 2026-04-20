@@ -18,6 +18,7 @@ import Definitions.CanSwim;
 import Definitions.CanTeleport;
 import Definitions.CanWalk;
 import Definitions.Terrain;
+import Definitions.CanReproduce;
 
 import java.awt.*;
 import java.util.*;
@@ -69,6 +70,14 @@ public class AlienWorldSim extends JPanel {
                 if (alien instanceof CanTeleport) {
                     // Teleporting to a random spot on the 100x100 grid
                     ((CanTeleport) alien).teleport(map);
+                }
+                if(alien instanceof CanReproduce)
+                {
+                    if((boolean) ((CanReproduce)alien).reproduce())
+                    {
+                        if(alien instanceof ZogFlyers)
+                            aliens.add(new ZogFlyers (r.nextInt(GRID_COUNT), r.nextInt(GRID_COUNT), CELL_SIZE));
+                    }
                 }
             }
             repaint();

@@ -23,7 +23,7 @@ public class Blobster extends Alien implements CanWalk, CanSwim{ //Unfortunately
         }
         else{
             // super("Blob", x, y, (size/2), Color.GRAY); 
-            gridY += (rand.nextBoolean() ? 1 : -1);
+            gridY += (r.nextBoolean() ? 1 : -1);
             gridY = Math.max(0, Math.min(map[0].length-1, gridY));
         }
 

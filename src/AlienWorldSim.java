@@ -118,7 +118,7 @@ public class AlienWorldSim extends JPanel {
 
     public static void main(String[] args) {
         JFrame f = new JFrame("The Great Divide");
-        f.add(new AlienWorldSim(200));
+        f.add(new AlienWorldSim(20));
         f.pack();
         f.setSize(765, 800);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

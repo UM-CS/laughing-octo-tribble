@@ -8,8 +8,8 @@ import java.awt.Color;
 import java.util.Random;
 
 public class ZogSwimmer extends Alien implements CanSwim, CanWalk {
-   int WaterSpeed = 3;
-   int LandSpeed = 1;
+   int WaterSpeed = 8;
+   int LandSpeed = 2;
 
    public ZogSwimmer(int x, int y, int size) {
       super("WaterZog", x, y, size, Color.PINK);

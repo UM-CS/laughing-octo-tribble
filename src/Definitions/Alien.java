@@ -7,12 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 
 public class Alien {
     protected int gridX, gridY;
     int size;
     Color color;
     String name;
+    private Image sprite;
 
     Terrain myFaction = Terrain.VOID;
 
@@ -52,15 +55,33 @@ public class Alien {
         this.color = color;
     }
 
+    public Alien(String name, int x, int y, int size, Color color, String imageString) {
+        try {
+            this.name = getRandomName();
+            this.sprite = new ImageIcon(imageString).getImage();
+        } catch (Exception e) {
+            this.name = name;
+        }
+        this.gridX = x; 
+        this.gridY = y;
+        this.size = size; 
+        this.color = color;
+    }
+
+
     public void draw(Graphics g) {
-        g.setColor(color);
-        int drawX = gridX * 15 + 4;
-        int drawY = gridY * 15 + 4;
-        int drawSize = size - 8;
-        g.fillRoundRect(drawX, drawY, drawSize, drawSize, 10, 10);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 12));
-        g.setColor(Color.WHITE); 
-        g.drawString(name, drawX + 2, drawY + (drawSize / 2) + 5);
+        if(sprite != null){
+            g.drawImage(sprite, gridX * 15 + 4, gridY * 15 + 4,size,size, null);
+        }else{
+            g.setColor(color);
+            int drawX = gridX * 15 + 4;
+            int drawY = gridY * 15 + 4;
+            int drawSize = size - 8;
+            g.fillRoundRect(drawX, drawY, drawSize, drawSize, 10, 10);
+            g.setFont(new Font("SansSerif", Font.PLAIN, 12));
+            g.setColor(Color.WHITE); 
+            g.drawString(name, drawX + 2, drawY + (drawSize / 2) + 5);
+        }
     }
 
     // Helper to validate moves based on Interfaces

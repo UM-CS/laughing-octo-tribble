@@ -21,6 +21,11 @@ import Definitions.Terrain;
 import Definitions.CanReproduce;
 
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.*;
 import java.util.List;
 import java.util.function.Supplier;
@@ -116,9 +121,30 @@ public class AlienWorldSim extends JPanel {
         for (Alien a : aliens) a.draw(g);
     }
 
+    public void saveWorld(String filename) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(aliens);
+            System.out.println("Aliens saved successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadWorld(String filename) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+            List<Alien> loadedAliens = (List<Alien>) ois.readObject();
+            this.aliens.clear();
+            this.aliens.addAll(loadedAliens);
+            repaint();
+            System.out.println("Aliens loaded successfully!");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         JFrame f = new JFrame("The Great Divide");
-        f.add(new AlienWorldSim(20));
+        f.add(new AlienWorldSim(200));
         f.pack();
         f.setSize(765, 800);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

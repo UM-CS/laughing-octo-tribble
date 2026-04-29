@@ -4,18 +4,20 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 
 
-public class Alien {
+public class Alien implements Serializable{
     protected int gridX, gridY;
     int size;
     Color color;
     String name;
-    private Image sprite;
+    private transient Image sprite;
+    String imageString = null;
 
     Terrain myFaction = Terrain.VOID;
 
@@ -62,6 +64,7 @@ public class Alien {
         } catch (Exception e) {
             this.name = name;
         }
+        this.imageString = imageString;
         this.gridX = x; 
         this.gridY = y;
         this.size = size; 
@@ -106,6 +109,11 @@ public class Alien {
         return gridY;
     }
 
-    
+    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        if (imageString != null) {
+            this.sprite = new ImageIcon(imageString).getImage();
+        }
+    }
 
 }

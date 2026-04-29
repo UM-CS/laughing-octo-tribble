@@ -44,11 +44,14 @@ public class ZogWalker extends Alien implements CanWalk {
         if (canEnter(nextX, nextY, map)) {
             gridX = nextX;
         } else {
-            clip.start();
+            // clip.start();
             // If they hit a river and can't swim, they just pace up and down
             gridY += (r.nextBoolean() ? 1 : -1);
             gridY = Math.max(0, Math.min(map[0].length-1, gridY));
         }
+
+        clip.close();
+
     }
 
     
